@@ -285,8 +285,7 @@ int main() {
       
     }
     ```
-    
-    ![Untitled](C++%20Foundations%20-%20Introduction%20to%20C++%20cc77d14865b6416d9803e20e52e62278/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/25359882/213782661-82e8d7f1-925a-46a7-8568-59d294b1ec20.png)
     
 
 - fstream
@@ -586,6 +585,5 @@ That stream was NOT successful!
     }
     ```
     
-    OUTPUT
-    
-    ![Untitled](C++%20Foundations%20-%20Introduction%20to%20C++%20cc77d14865b6416d9803e20e52e62278/Untitled%201.png)
+#### Output
+![Untitled 1](https://user-images.githubusercontent.com/25359882/213782918-bdb6a135-f9aa-4be2-ba99-49769c929100.png)
