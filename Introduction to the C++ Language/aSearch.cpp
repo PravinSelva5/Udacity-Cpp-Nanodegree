@@ -12,7 +12,8 @@ using std::string;
 using std::vector;
 using std::abs;
 
-enum class State {kEmpty, kObstacle, kClosed, kPath};
+// TODO: Add kStart and kFinish enumerators to the State enum.
+enum class State {kEmpty, kObstacle, kClosed, kPath, kStart, kFinish};
 
 // directional deltas
 const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
@@ -97,26 +98,27 @@ void AddToOpen(int x, int y, int g, int h, vector<vector<int>> &openlist, vector
 /** 
  * Expand current nodes's neighbors and add them to the open list.
  */
-void ExpandNeighbors(const vector<int> &current, int goal[2], vector<vector<int>> &openlist, vector<vector<State>> &grid){
-	// current nodes data
-  	int x = current[0];
-  	int y = current[1];
-  	int g = current[2];
-  
-  	// loop through current node's neigbours
-  	for (int i = 0; i < 4; i++){
-     	int x2 = x + delta[i][0];
-      	int y2 = y + delta[i][1];
-      
-      // Check that the potential neighbor's x2 and y2 values are on the grid and not closed.
-      if (CheckValidCell(x2, y2, grid)) {
-        // Increment g value and add neighbor to open list.
-        int g2 = g + 1;
-        int h2 = Heuristic(x2, y2, goal[0], goal[1]);
-        AddToOpen(x2, y2, g2, h2, openlist, grid);
-      }
-	}
+void ExpandNeighbors(const vector<int> &current, int goal[2], vector<vector<int>> &openlist, vector<vector<State>> &grid) {
+  // Get current node's data.
+  int x = current[0];
+  int y = current[1];
+  int g = current[2];
+
+  // Loop through current node's potential neighbors.
+  for (int i = 0; i < 4; i++) {
+    int x2 = x + delta[i][0];
+    int y2 = y + delta[i][1];
+
+    // Check that the potential neighbor's x2 and y2 values are on the grid and not closed.
+    if (CheckValidCell(x2, y2, grid)) {
+      // Increment g value and add neighbor to open list.
+      int g2 = g + 1;
+      int h2 = Heuristic(x2, y2, goal[0], goal[1]);
+      AddToOpen(x2, y2, g2, h2, openlist, grid);
+    }
+  }
 }
+
 
 /** 
  * Implementation of A* search algorithm
@@ -143,6 +145,8 @@ vector<vector<State>> Search(vector<vector<State>> grid, int init[2], int goal[2
 
     // Check if we're done.
     if (x == goal[0] && y == goal[1]) {
+      grid[init[0]][init[1]] = State::kStart;
+      grid[goal[0]][goal[1]] = State::kFinish;
       return grid;
     }
     
@@ -160,7 +164,9 @@ string CellString(State cell) {
   switch(cell) {
     case State::kObstacle: return "⛰️   ";
     case State::kPath: return "🚗   ";
-    default: return "0   "; 
+    case State::kStart: return "🚦   ";
+    case State::kFinish: return "🏁   ";
+    default: return "0   ";
   }
 }
 
