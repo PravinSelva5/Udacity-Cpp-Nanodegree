@@ -1,7 +1,5 @@
 # Object-Oriented Programming - Intro to OOP
 
-Created: February 21, 2023 5:27 PM
-
 ## Classes and OOP
 
 - classes allow you to create **user-defined** types.
