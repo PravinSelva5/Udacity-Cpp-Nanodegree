@@ -1,7 +1,5 @@
 # Object-Oriented Programming - Advanced OOP
 
-Created: March 1, 2023 10:41 PM
-
 ## Polymorphism and Inheritance
 
 - Inheritance is one way classes can relate to each other.
