@@ -1,47 +1,89 @@
-# CPPND: Capstone Snake Game
+# Snake Game Capstone Project
 
-## By: Pravin Selvarajah
+This project is an implementation of the classic Snake Game for the Udacity C++ Nanodegree program. The game has been implemented using C++ and the SDL2 library.
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+## Project Structure
 
-<img src="snake_game.gif"/>
+- `src/main.cpp`: The main function and game loop.
+- `src/game.cpp` and `src/game.h`: Game class that handles the game logic.
+- `src/controller.cpp` and `src/controller.h`: Controller class that handles user input.
+- `src/renderer.cpp` and `src/renderer.h`: Renderer class that handles rendering the game objects.
+- `src/snake.cpp` and `src/snake.h`: Snake class that handles the snake object and its behavior.
+- `src/highscore.cpp` and `src/highscore.h`: HighScore class that handles the loading, saving, and updating of high scores.
+- `src/menu.cpp` and `src/menu.h`: Menu class that handles the main menu and interaction with the user.
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+## Rubric Points
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+### README (All Rubric Points REQUIRED)
 
-## Dependencies for Running Locally
+- The README is included with the project and has instructions for building/running the project.
+- The README describes the project.
+- The README indicates which rubric points are addressed.
+
+### Compiling and Testing (All Rubric Points REQUIRED)
+
+- The project code compiles and runs without errors.
+
+### Loops, Functions, I/O
+
+- A variety of control structures are used in the project, including `if`, `while`, and `for` loops.
+- The project code is clearly organized into functions.
+- The project reads data from a file (`highscores.txt`) and processes the data (in `highscore.cpp`).
+- The project accepts input from a user as part of the necessary operation of the program (`controller.cpp` and `menu.cpp`).
+
+### Object Oriented Programming
+
+- The project code is organized into classes with class attributes and class methods.
+- Classes use appropriate access specifiers for class members.
+- Class constructors utilize member initialization lists (in `game.cpp`, `snake.cpp`, and `highscore.cpp`).
+- Classes abstract implementation details from their interfaces (in `game.h`, `controller.h`, `renderer.h`, `snake.h`, `highscore.h`, and `menu.h`).
+- Classes encapsulate behavior (in `game.cpp`, `controller.cpp`, `renderer.cpp`, `snake.cpp`, `highscore.cpp`, and `menu.cpp`).
+
+### Memory Management
+
+- The project makes use of references in function declarations (in `controller.h` and `renderer.h`).
+- The project uses destructors appropriately (in `renderer.cpp`).
+- The project uses the Rule of 5 in the Snake class (in `snake.cpp` and `snake.h`).
+- The project uses move semantics to move data, instead of copying it, where possible (in `snake.cpp`).
+- The project uses smart pointers instead of raw pointers (in `renderer.cpp` and `renderer.h` with `shared_ptr`).
+
+### Concurrency
+
+- Not applicable for this project.
+
+## Dependencies
 
 - cmake >= 3.7
-  - All OSes: [click here for installation instructions](https://cmake.org/install/)
-- make >= 4.1 (Linux, Mac), 3.81 (Windows)
-  - Linux: make is installed by default on most Linux distros
-  - Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-  - Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
+- make >= 4.1
 - SDL2 >= 2.0
-  - All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
-    > Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
-- gcc/g++ >= 5.4
-  - Linux: gcc / g++ is installed by default on most Linux distros
-  - Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
-  - Windows: recommend using [MinGW](http://www.mingw.org/)
+- SDL2_image >= 2.0
+- SDL2_ttf >= 2.0
 
-## Basic Build Instructions
+## Build Instructions
 
-1. Clone this repo.
+1. Clone the repository:
+
+
+1. Clone the repository:`git clone https://github.com/PravinSelva5/Udacity-Cpp-Nanodegree.git`
+`cd "Udacity-Cpp-Nanodegree/Capstone Project"`
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./SnakeGame`.
+4. Run the game: `./SnakeGame`
 
-## CC Attribution-ShareAlike 4.0 International
 
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+## How to Play
 
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+- Use the arrow keys to control the snake.
+- Eat the food (yellow square) to increase the snake's length.
+- Avoid collisions with the snake's own body and the walls.
+- The game ends when the snake collides with its body or the walls.
+- Press 'q' to quit the game at any time.
+- Press 'p' to pause and resume the game.
 
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+## High Scores
 
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+The high scores are saved in a file called `highscores.txt`. The game will automatically update the high scores when a new high score is achieved.
+
+
+
+
